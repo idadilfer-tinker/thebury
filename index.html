@@ -122,6 +122,33 @@
   .band-label .rule{flex:1;height:1px;background:rgba(38,41,31,.16);}
   .chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 11px;border-radius:999px;border:1.5px solid currentColor;opacity:.72;margin-bottom:12px;align-self:flex-start;}
 
+
+  /* ---- What The Bury offers parents ---- */
+  .offer{background:var(--paper);}
+  .offer h2{font-size:clamp(34px,4.2vw,54px);max-width:760px;margin-bottom:16px;}
+  .offer h2 em{font-style:italic;color:var(--brick);}
+  .offer .sub{max-width:620px;opacity:.85;margin-bottom:48px;font-size:18px;}
+  .odays{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:26px;}
+  .oday{background:var(--cream-deep);border-radius:var(--radius);padding:34px 36px;}
+  .oday.dark{background:var(--green-deep);color:var(--cream);}
+  .oday .tag{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--brick);margin-bottom:12px;}
+  .oday.dark .tag{color:var(--gold);}
+  .oday h3{font-size:26px;margin-bottom:14px;line-height:1.15;}
+  .oday p{font-size:16px;line-height:1.6;opacity:.9;margin-bottom:14px;}
+  .oday p:last-child{margin-bottom:0;}
+  .oday .beat{display:flex;gap:12px;font-size:15.5px;padding:9px 0;border-bottom:1px solid rgba(38,41,31,.13);}
+  .oday.dark .beat{border-bottom-color:rgba(245,239,226,.18);}
+  .oday .beat:last-child{border-bottom:none;}
+  .oday .beat b{flex:none;width:62px;font-variant-numeric:tabular-nums;color:var(--brick);}
+  .oday.dark .beat b{color:var(--gold);}
+  .oprac{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .op{border:1.5px solid rgba(38,41,31,.16);border-radius:var(--radius);padding:28px 30px;background:#fff;}
+  .op h4{font-size:19px;margin-bottom:8px;font-family:var(--serif);font-weight:500;}
+  .op p{font-size:15px;line-height:1.55;opacity:.85;}
+  .oclose{margin-top:34px;text-align:center;font-family:var(--serif);font-size:clamp(24px,3vw,34px);
+    line-height:1.25;color:var(--green-deep);}
+  .oclose em{font-style:italic;color:var(--brick);}
+  @media(max-width:860px){.odays{grid-template-columns:1fr;}.oprac{grid-template-columns:1fr;}}
   /* ---- The Lake ---- */
   .lake{background:var(--green-deep);color:var(--cream);}
   .lake .eyebrow{color:var(--gold);}
@@ -269,8 +296,8 @@
       <a href="#estate">The Estate</a>
       <a href="#spaces">The Spaces</a>
       <a href="#grounds">The Grounds</a>
+      <a href="#offer">For Parents</a>
       <a href="#membership">Membership</a>
-      <a href="#opportunity">The Opportunity</a>
       <a class="btn btn-brick nav-cta" href="#waitlist">Join the waitlist</a>
     </div>
   </div>
@@ -284,7 +311,7 @@
       <p class="lede">A family members' club with thoughtful spaces for parents, babies and children up to 12 years. Dedicated fitness and wellness areas, classes and care for children, and room for the whole family to eat, play and spend time together — set in a 1712 country estate with 4.7 acres and its own lake.</p>
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#waitlist">Join the founding waitlist</a>
-        <a class="btn btn-ghost" href="#opportunity">Investing or partnering? ↓</a>
+        <a class="btn btn-ghost" href="#offer">What we offer parents ↓</a>
       </div>
       <p class="hero-note"><strong>Opening 2027.</strong> 400 local families have already registered. Founding members lock their rate for life — limited to the first 100 families.</p>
     </div>
@@ -495,44 +522,50 @@
   </div>
 </section>
 
-<section class="opportunity" id="opportunity">
+
+
+
+<section class="offer" id="offer">
   <div class="wrap">
-    <div class="eyebrow">The Opportunity — for investors &amp; partners</div>
-    <h2>London proved the model. The Bury is the venue London can't have.</h2>
-    <p class="lede">Family members' clubs are one of hospitality's fastest-validating categories: OurHouse's London clubs sold out initial memberships within minutes and took £100m from Blackstone to expand. No comparable club exists in the Chilterns commuter belt — home to exactly the families who priced those London clubs out in the first place. And where London operators retrofit urban buildings, The Bury offers what they can't: a 1712 estate with 4.7 acres and a lake, half a mile from a Metropolitan line station.</p>
-    <div class="stat-grid">
-      <div class="stat reveal"><div class="big">£100m</div><p>Blackstone's investment into OurHouse to roll out three more London family clubs — institutional validation of the category.</p></div>
-      <div class="stat reveal"><div class="big">Minutes</div><p>How long initial membership allocations took to sell out at OurHouse's London sites, with rolling waitlists since 2022.</p></div>
-      <div class="stat reveal"><div class="big">0</div><p>Comparable family clubs serving Chesham, Amersham, Berkhamsted, Beaconsfield and the wider Chilterns belt.</p></div>
-    </div>
-    <div class="fin">
-      <div class="reveal">
-        <h3>Why The Bury, why now</h3>
-        <p>The towns around it — Amersham, Berkhamsted, Beaconsfield, Gerrards Cross, the Chalfonts — hold one of the densest concentrations of high-income young families in the country: London leavers who traded the city for schools and gardens, and miss having somewhere to go.</p>
-        <p>The estate is available to let now, in Class E use — the class that already spans workspace, fitness, crèche and café uses, materially reducing planning risk. The listed house takes the quiet uses; the Stables takes the loud ones.</p>
-        <p>Our wedge is the <strong>crash gym</strong>: a genuine kid-magnet anchor no London club leads with, driving weekly visit frequency and party revenue from day one.</p>
+    <div class="eyebrow">What The Bury offers parents</div>
+    <h2>A second home — <em>full of life.</em></h2>
+    <p class="sub">Not a place you take the children and endure. A place where your day and theirs happen in the same building, and you stop choosing between them.</p>
+
+    <div class="odays">
+      <div class="oday">
+        <div class="tag">The work-from-home day</div>
+        <h3>Work properly. See them anyway.</h3>
+        <div class="beat"><b>9:00</b><span>Drop them at the crèche on your way in. No handover in a car park, no drive across town.</span></div>
+        <div class="beat"><b>9:15</b><span>A focus booth, fast WiFi and a meeting room that isn't your kitchen table.</span></div>
+        <div class="beat"><b>13:00</b><span>A class in the Studio, or lunch on the terrace with someone who isn't on a screen.</span></div>
+        <div class="beat"><b>16:00</b><span>Close the laptop and walk twenty steps to the play area. You finish the day with them, not apologising to them.</span></div>
+        <p style="margin-top:16px;"><strong>One building, one commute, one day</strong> — instead of a day spent missing them.</p>
       </div>
-      <div class="reveal">
-        <h3>Illustrative unit economics</h3>
-        <table>
-          <thead><tr><th>Member families</th><th class="num">250</th><th class="num">325</th><th class="num">400</th></tr></thead>
-          <tbody>
-            <tr><td>Membership ARR</td><td class="num">£0.9m</td><td class="num">£1.2m</td><td class="num">£1.4m</td></tr>
-            <tr><td>Secondary spend (F&amp;B, parties, guests)</td><td class="num">£0.15m</td><td class="num">£0.2m</td><td class="num">£0.25m</td></tr>
-            <tr><td><strong>Total revenue</strong></td><td class="num"><strong>£1.05m</strong></td><td class="num"><strong>£1.4m</strong></td><td class="num"><strong>£1.65m</strong></td></tr>
-            <tr><td>EBITDA margin</td><td class="num">~0%</td><td class="num">~15%</td><td class="num">~25%</td></tr>
-          </tbody>
-        </table>
-        <p class="fin-note">Illustrative model: blended £300/family/month, ~15% secondary spend, mature-year opex ~£1.05m including estimated full-estate rent (part-lets quoted from £3,313 pcm; whole-estate terms to be agreed). Cash breakeven ≈ 255 families. All assumptions open for diligence.</p>
+
+      <div class="oday dark">
+        <div class="tag">Dinner, actually out</div>
+        <h3>An hour at your own table.</h3>
+        <p>Book a table in the Family Kitchen and leave the children in the crèche or the activity centre for an hour. Long enough for a proper meal and an unhurried conversation — close enough that you can see them if you want to.</p>
+        <p>And if you'd like a glass of wine with it: our valet service will drive you and your car home. Nobody nominates a driver, nobody counts the minutes, nobody sits in a taxi queue at ten at night.</p>
       </div>
     </div>
-    <div class="ask reveal">
-      <div>
-        <h3>The ask</h3>
-        <p>Raising a founding round to secure the estate lease, convert the Stables into the crash gym, sensitively fit out the listed house, and open with a waitlist already in hand. Full deck, estate particulars and model available on request.</p>
+
+    <div class="oprac">
+      <div class="op">
+        <h4>Parking that isn't a problem</h4>
+        <p>Multiple levels of parking on the estate. No circling the Old Town with a toddler asleep in the back, no meter running down while you're mid-coffee.</p>
       </div>
-      <a class="btn" href="#waitlist">Request the deck</a>
+      <div class="op">
+        <h4>Something on, every month</h4>
+        <p>A different artistic or musical event every month — recitals on the lawn, exhibitions in the panelled rooms, live music in the hall. A reason to come back that isn't the same reason as last time.</p>
+      </div>
+      <div class="op">
+        <h4>Care you can actually book</h4>
+        <p>Registered crèche hours included in your membership and bookable by the hour — for a work call, a class, a meal, or an afternoon that's yours.</p>
+      </div>
     </div>
+
+    <p class="oclose">Somewhere the whole family belongs — <em>and nobody is waiting in the car.</em></p>
   </div>
 </section>
 
