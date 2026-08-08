@@ -697,19 +697,24 @@
       </div>
     </div>
     <form id="wl-form" novalidate>
+      <input type="hidden" name="access_key" value="8d56db8d-7db1-4963-b338-3a676d374374">
+      <input type="hidden" name="subject" value="New founding member registration — The Bury">
+      <input type="hidden" name="from_name" value="The Bury website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <label>I'm interested as a…</label>
         <div class="seg">
-          <input type="radio" name="role" id="r-parent" value="parent" checked><label for="r-parent">Parent</label>
-          <input type="radio" name="role" id="r-investor" value="investor"><label for="r-investor">Investor</label>
-          <input type="radio" name="role" id="r-cofounder" value="cofounder"><label for="r-cofounder">Cofounder</label>
+          <input type="radio" name="role" id="r-parent" value="Parent" checked><label for="r-parent">Parent</label>
+          <input type="radio" name="role" id="r-investor" value="Investor"><label for="r-investor">Investor</label>
+          <input type="radio" name="role" id="r-cofounder" value="Cofounder"><label for="r-cofounder">Cofounder</label>
         </div>
       </div>
-      <div class="f-row"><label for="name">Name</label><input id="name" type="text" autocomplete="name" required></div>
-      <div class="f-row"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
-      <div class="f-row"><label for="postcode">Postcode <span class="optional">optional</span></label><input id="postcode" type="text" autocomplete="postal-code" placeholder="e.g. HP5"></div>
-      <div class="f-row"><label for="kids">Children's ages <span class="optional">optional</span></label><input id="kids" type="text" placeholder="e.g. 3 and 6"></div>
+      <div class="f-row"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div class="f-row"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="f-row"><label for="postcode">Postcode <span class="optional">optional</span></label><input id="postcode" name="postcode" type="text" autocomplete="postal-code" placeholder="e.g. HP5"></div>
+      <div class="f-row"><label for="kids">Children's ages <span class="optional">optional</span></label><input id="kids" name="children_ages" type="text" placeholder="e.g. 3 and 6"></div>
       <button class="btn btn-brick" type="submit">Claim my founding place</button>
+      <p id="wl-error" style="display:none;color:#B24E2F;font-size:14px;margin-top:12px;font-weight:600;">Something went wrong sending that. Please email us at hellothebury@gmail.com and we'll add you straight away.</p>
       <p class="reassure" style="color:var(--ink);opacity:.6;">No payment now, and no commitment. We'll only email you about The Bury, and you can unsubscribe any time.</p>
     </form>
     <div class="success" id="wl-success">
@@ -727,15 +732,35 @@
 </footer>
 
 <script>
-  // Waitlist form — front-end demo (connect to Tally/Mailchimp/Airtable before launch)
-  document.getElementById('wl-form').addEventListener('submit',function(e){
+  // Waitlist form — posts to Web3Forms, emails hellothebury@gmail.com
+  document.getElementById('wl-form').addEventListener('submit', function(e){
     e.preventDefault();
-    var name=document.getElementById('name'),email=document.getElementById('email');
-    if(!name.value.trim()||!email.value.trim()||email.validity.typeMismatch){
-      (!name.value.trim()?name:email).focus();return;
+    var form = this;
+    var name = document.getElementById('name'), email = document.getElementById('email');
+    if(!name.value.trim() || !email.value.trim() || email.validity.typeMismatch){
+      (!name.value.trim() ? name : email).focus(); return;
     }
-    this.style.display='none';
-    document.getElementById('wl-success').style.display='block';
+    var btn = form.querySelector('button[type=submit]');
+    var label = btn.textContent;
+    btn.textContent = 'Sending…'; btn.style.opacity = '.6'; btn.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data.success){
+        form.style.display = 'none';
+        document.getElementById('wl-success').style.display = 'block';
+      } else { throw new Error(data.message || 'failed'); }
+    })
+    .catch(function(){
+      btn.textContent = label; btn.style.opacity = '1'; btn.disabled = false;
+      var err = document.getElementById('wl-error');
+      if(err) err.style.display = 'block';
+    });
   });
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
