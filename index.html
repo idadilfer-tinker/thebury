@@ -271,6 +271,18 @@
   .waitlist .sub{opacity:.88;margin-bottom:28px;}
   .perk{display:flex;gap:14px;margin-bottom:18px;font-size:15.5px;}
   .perk .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .founding{background:rgba(245,239,226,.09);border:1.5px solid rgba(206,156,67,.5);
+    border-radius:var(--radius);padding:28px 30px;margin-bottom:28px;}
+  .founding .hd{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:16px;}
+  .fben{display:flex;gap:13px;padding:11px 0;border-bottom:1px solid rgba(245,239,226,.16);font-size:15.5px;line-height:1.5;}
+  .fben:last-child{border-bottom:none;}
+  .fben .tick{flex:none;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--ink);
+    font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .fben b{color:#fff;}
+  .strike{text-decoration:line-through;opacity:.55;}
+  .reassure{font-size:13.5px;opacity:.7;margin-top:14px;line-height:1.5;}
+  .optional{font-weight:400;opacity:.6;font-size:12.5px;}
   form{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:40px;}
   .f-row{margin-bottom:20px;}
   label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;}
@@ -668,12 +680,17 @@
 <section class="waitlist" id="waitlist">
   <div class="wrap waitlist-grid">
     <div>
-      <div class="eyebrow" style="color:var(--gold)">Early access</div>
+      <div class="eyebrow" style="color:var(--gold)">Founding membership</div>
       <h2>Be first through the gate.</h2>
-      <p class="sub">400 local families have already registered. Whether you're a family, an investor or a possible cofounder — leave your details and we'll be in touch as The Bury takes shape.</p>
-      <div class="perk"><div class="n">1</div><div><strong>Founding rate, locked for life</strong> — first 100 families only.</div></div>
-      <div class="perk"><div class="n">2</div><div><strong>Shape the club</strong> — founding members vote on spaces, classes and the menu.</div></div>
-      <div class="perk"><div class="n">3</div><div><strong>Launch parties</strong> — first swings on the crash gym, before doors open.</div></div>
+      <p class="sub">The first 100 families become founding members. It costs nothing to register, and it is the only way to get the founding rate.</p>
+
+      <div class="founding">
+        <div class="hd">What founding members get</div>
+        <div class="fben"><div class="tick">✓</div><div><b>The founding rate, frozen for life.</b> <span class="strike">£360</span> £340 a month for two adults and two children — and it never rises, however far standard membership does.</div></div>
+        <div class="fben"><div class="tick">✓</div><div><b>No joining fee.</b> Waived entirely for founding families — a £350 saving on day one.</div></div>
+        <div class="fben"><div class="tick">✓</div><div><b>First pick of crèche sessions.</b> Priority booking on childcare hours, classes and holiday camps, ahead of every later member.</div></div>
+        <div class="fben"><div class="tick">✓</div><div><b>A private preview, before we open.</b> Founding families are invited to walk the estate with us, see the plans, and help shape the spaces, the classes and the menu.</div></div>
+      </div>
     </div>
     <form id="wl-form" novalidate>
       <div class="f-row">
@@ -686,9 +703,10 @@
       </div>
       <div class="f-row"><label for="name">Name</label><input id="name" type="text" autocomplete="name" required></div>
       <div class="f-row"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
-      <div class="f-row"><label for="postcode">Postcode</label><input id="postcode" type="text" autocomplete="postal-code" placeholder="e.g. HP5"></div>
-      <div class="f-row"><label for="kids">Children's ages (if joining as a family)</label><input id="kids" type="text" placeholder="e.g. 3 and 6"></div>
-      <button class="btn btn-brick" type="submit">Join the waitlist</button>
+      <div class="f-row"><label for="postcode">Postcode <span class="optional">optional</span></label><input id="postcode" type="text" autocomplete="postal-code" placeholder="e.g. HP5"></div>
+      <div class="f-row"><label for="kids">Children's ages <span class="optional">optional</span></label><input id="kids" type="text" placeholder="e.g. 3 and 6"></div>
+      <button class="btn btn-brick" type="submit">Claim my founding place</button>
+      <p class="reassure" style="color:var(--ink);opacity:.6;">No payment now, and no commitment. We'll only email you about The Bury, and you can unsubscribe any time.</p>
     </form>
     <div class="success" id="wl-success">
       <h3 class="serif">You're on the list. 🎉</h3>
@@ -700,7 +718,7 @@
 <footer>
   <div class="wrap foot">
     <div><strong class="serif" style="font-size:18px">The Bury</strong> · A family members' club · Church Street, Chesham Old Town</div>
-    <div>hello@thebury.club · Opening target 2027</div>
+    <div>hellothebury@gmail.com · Opening target 2027</div>
   </div>
 </footer>
 
