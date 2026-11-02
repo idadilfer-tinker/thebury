@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Bury Founding Families</title>
+<meta name="description" content="Updates, films and the design philosophy for The Bury's founding families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: thebury.club's own system (tokens, Fraunces + Karla, 20px radius, pill buttons, cv badges) set on a deep-green ground. Sections step between green-deep, green and ink; the ownership ask is the site's brick "ask" block. */
+:root{
+  --cream:#F5EFE2; --cream-deep:#EAE1CD; --paper:#FCF8EF;
+  --ink:#26291F; --green:#40513B; --green-deep:#2E3B2A; --sage:#C3CDB9;
+  --brick:#B24E2F; --brick-soft:#C9714F; --gold:#CE9C43;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Karla',-apple-system,Helvetica,Arial,sans-serif;
+  --radius:20px;
+  --line:rgba(245,239,226,.18);
+  --muted:rgba(245,239,226,.82);
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--green-deep);color:var(--cream);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+@media(min-width:700px){.wrap{padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}}
+.narrow{max-width:740px}
+section{padding-block:96px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-0.01em;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--brick-soft)}
+.eyebrow{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.stack{display:flex;flex-direction:column;gap:18px}
+.sub{max-width:600px;color:var(--muted);font-size:18px}
+.cv{position:absolute;bottom:8px;right:10px;background:rgba(38,41,31,.62);color:var(--cream);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;z-index:2;backdrop-filter:blur(3px)}
+.cv.phase{bottom:auto;top:12px;right:12px;background:var(--brick);color:#fff}
+.btn{display:inline-block;font-family:var(--sans);font-weight:700;font-size:16px;padding:14px 28px;border-radius:999px;text-decoration:none;border:2px solid var(--cream);background:var(--cream);color:var(--ink);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.btn-ghost{background:transparent;color:var(--cream)}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(46,59,42,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--green-deep)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.logo{font-family:var(--serif);font-size:25px;font-weight:600;text-decoration:none;letter-spacing:-0.02em;line-height:1;color:var(--cream)}
+.logo small{display:block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.nav-cta{font-size:14px;padding:10px 20px}
+
+/* hero */
+.hero{padding-block:84px 72px}
+.hero .grid2{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,4.6vw,62px);line-height:1.05;max-width:13ch}
+.hero .lede{font-size:20px;max-width:540px;color:var(--muted)}
+.hero-media{position:relative;min-width:0}
+.arch{position:relative;border-radius:300px 300px var(--radius) var(--radius);overflow:hidden;aspect-ratio:4/4.6;background:var(--green);max-width:100%}
+.arch video{width:100%;height:100%;object-fit:cover}
+.arch .cv{bottom:14px;right:14px}
+.seal{position:absolute;top:-6px;right:-6px;width:118px;height:118px;animation:spin 18s linear infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,.3))}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.seal{animation:none}}
+
+/* letter */
+.letter{padding-block:24px 96px}
+.letter p{font-size:18px;color:var(--muted)}
+.letter p b{color:var(--cream)}
+.sign{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--brick-soft)!important}
+
+/* ideas */
+.ideas{background:var(--green)}
+.ideas header{margin-bottom:48px;max-width:720px}
+.ideas h2,.phil h2,.lib h2,.updates h2,.own h2{font-size:clamp(34px,4.2vw,54px)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--green-deep);color:var(--cream);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card .img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .img img{transform:scale(1.04)}
+.card .txt{padding:26px 28px 28px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:24px}
+.card p{font-size:15px;line-height:1.5;color:var(--muted)}
+.card.wide{grid-column:span 2}
+.card.wide .img{aspect-ratio:16/7}
+.card.full{grid-column:1/-1}
+.card.note{background:var(--ink)}
+.card.bikes .img{aspect-ratio:16/9}
+.card.bikes img{position:absolute;inset:0;object-position:50% 40%}
+.card .illus{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(245,239,226,.04);border-bottom:1px solid var(--line)}
+.card .illus svg{width:100%;height:100%;max-width:340px}
+.card.side{flex-direction:row}
+.card.side .illus{flex:0 0 42%;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}
+.card.side .photo{flex:0 0 42%;aspect-ratio:auto;min-height:320px}
+.card.side .photo img{position:absolute;inset:0}
+.card.side .txt{align-self:center;padding:36px}
+
+/* philosophy */
+.phil{background:var(--ink)}
+.phil h2{max-width:20ch}
+.phil .intro{max-width:62ch;color:var(--muted);font-size:18px}
+.threads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:44px;padding-top:34px;border-top:1px solid var(--line)}
+.threads div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.threads h3{font-family:var(--serif);font-size:30px;color:var(--gold);font-style:italic}
+.threads p{color:var(--muted);font-size:15.5px}
+
+/* library + coworking */
+.lib .top{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.lib p{color:var(--muted)}
+.film{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--green);aspect-ratio:16/9;max-width:100%}
+.film video{width:100%;height:100%;object-fit:cover}
+.film .cv{bottom:auto;top:12px;right:12px}
+.principles{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.principles li{border-left:2px solid var(--brick-soft);padding-left:18px;font-size:16px;color:var(--muted)}
+.principles b{color:var(--cream);font-weight:700}
+.choose{margin-top:72px}
+.choose h3{font-size:clamp(26px,2.8vw,32px);margin-block:4px 8px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.pair figure{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pair .img{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10}
+.pair img{width:100%;height:100%;object-fit:cover}
+.pair figcaption{font-size:15px;color:var(--muted)}
+.pair figcaption b{color:var(--cream);font-family:var(--serif);font-weight:500;font-size:20px;display:block;margin-bottom:2px}
+.cowork{background:var(--green)}
+.cowork .top{align-items:center}
+
+/* updates */
+.updates h2{margin-bottom:28px}
+.log{list-style:none;display:flex;flex-direction:column}
+.log li{display:grid;grid-template-columns:150px 1fr;gap:24px;padding-block:22px;border-top:2px solid rgba(245,239,226,.3)}
+.log time{font-family:var(--serif);font-size:22px;color:var(--gold);line-height:1.2}
+.log h3{font-family:var(--sans);font-weight:700;font-size:17px;margin-bottom:6px;letter-spacing:0}
+.log p{font-size:15.5px;color:var(--muted)}
+
+/* own: the site's brick ask block */
+.own{padding-top:24px}
+.own .box{background:var(--brick);color:#fff;border-radius:var(--radius);padding:48px clamp(24px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.own .eyebrow{color:#fff;opacity:.85}
+.own h2 em{color:var(--cream)}
+.own p{opacity:.95;font-size:16.5px}
+.own .cta{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mailrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.mail{font-family:var(--serif);font-size:21px;word-break:break-all;user-select:all}
+.own .btn{border-color:#fff;background:#fff;color:var(--brick);font-size:15px;padding:11px 22px}
+.fine{font-size:12.5px;opacity:.8!important;line-height:1.5}
+
+footer{background:var(--ink);color:rgba(245,239,226,.75);padding-block:56px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .logo{font-size:23px}
+footer p{max-width:54ch}
+
+@media (max-width:860px){
+  section{padding-block:72px}
+  .hero{padding-block:48px 40px}
+  .hero .grid2,.lib .top,.own .box{grid-template-columns:1fr;gap:36px}
+  .hero-media{max-width:460px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card.wide{grid-column:span 2}
+  .threads{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .grid,.pair{grid-template-columns:1fr}
+  .card.wide{grid-column:auto}
+  .card.wide .img{aspect-ratio:4/3}
+  .card.side{flex-direction:column}
+  .card.side .photo{aspect-ratio:4/3;min-height:0}
+  .card.side .illus{aspect-ratio:4/3;border-right:0;border-bottom:1px solid var(--line)}
+  .card.side .txt{padding:26px 28px 28px}
+  .log li{grid-template-columns:1fr;gap:6px}
+  .seal{width:92px;height:92px;right:0}
+  .nav-cta{display:none}
+}
+</style>
+
+<meta property="og:title" content="The Bury · Founding Families">
+<meta property="og:image" content="https://thebury.club/foundingmembers/vision-poster.jpg">
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="https://thebury.club">The Bury<small>Chesham Old Town</small></a>
+    <a class="btn btn-ghost nav-cta" href="https://thebury.club">Back to thebury.club</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap grid2">
+    <div class="stack">
+      <span class="eyebrow">A letter to our founding families · November 2026</span>
+      <h1>You told us what you dream of. <em>Here’s where it’s taking us.</em></h1>
+      <p class="lede">The house is being imagined again from the ground up, with your answers on the drawing table.</p>
+    </div>
+    <div class="hero-media">
+      <div class="arch">
+        <video src="vision.mp4" poster="vision-poster.jpg" autoplay muted loop playsinline aria-label="Concept film: a day at The Bury, from the library to the lake, the kitchen and stargazing at night"></video>
+        <span class="cv">Concept film</span>
+      </div>
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#B24E2F"/>
+        <text fill="#F5EFE2" font-family="Karla,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" letter-spacing="2.6"><textPath href="#c">EST. 1712 · FOUNDING FAMILIES · </textPath></text>
+        <text x="60" y="66" text-anchor="middle" fill="#FCF8EF" font-family="Fraunces,Georgia,serif" font-size="20" font-style="italic">B</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="letter">
+  <div class="wrap narrow stack">
+    <p><b>Hello, founding families.</b></p>
+    <p>Thank you. So many of you wrote back, and your answers were generous, specific and wonderfully ambitious. A family kitchen where we cook together. A pool in an orangery. Big tree houses. Outdoor rooms. Quiet corners where a parent can work while their child plays nearby.</p>
+    <p>We read every one. Together they pushed us past a list of rooms and towards a question: what kind of childhood, and what kind of parenthood, should this house make room for?</p>
+    <p>The answer is becoming our design philosophy. It will shape how the spaces are laid out, how families meet each other in them, and how the club grows over the years. This page is where we will share it, and keep you updated as it takes form.</p>
+    <p class="sign">Ida, and the team at The Bury</p>
+  </div>
+</section>
+
+<section class="ideas" id="your-ideas">
+  <div class="wrap">
+    <header class="stack">
+      <span class="eyebrow">What you told us</span>
+      <h2>Your ideas are <em>giving the house its shape.</em></h2>
+    </header>
+    <div class="grid">
+      <article class="card wide">
+        <div class="img"><img src="family-kitchen.jpg" alt="Concept render of families making pasta together in a large cookery school kitchen with a chef" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt"><h3>A family kitchen</h3><p>Not a café where food is done for you. A kitchen where bread fails to rise, soup is too salty, and everyone eats the result together anyway.</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><img src="orangery.jpg" alt="Concept render of a swimming pool inside a glass orangery" loading="lazy"><span class="cv">Concept render</span><span class="cv phase">Phase two</span></div>
+        <div class="txt"><h3>A pool in an orangery</h3><p>First strokes and first jumps under glass. Planned for our second phase.</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><img src="garden.jpg" alt="Concept render of children planting in raised beds in a walled garden, with hens and rabbits nearby" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt"><h3>The organic eco-culture area</h3><p>Raised beds where members grow their own fruit and veg, and children learn to look after the hens and collect the eggs.</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><img src="lake.jpg" alt="Concept render of children and parents by the lake with kayaks" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt"><h3>The lake and grounds</h3><p>4.7 acres and a private lake, for wild afternoons and slow ones.</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><img src="treehouse.jpg" alt="Concept render of two tree houses joined by a rope bridge, with the house in the distance" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt"><h3>Big tree houses</h3><p>Rope bridges, ladders and a lookout over the grounds. Every idea you sent is on our list, and nothing has been thrown away.</p></div>
+      </article>
+      <article class="card">
+        <div class="img"><img src="stars.jpg" alt="Concept render of a family looking through a telescope on a rooftop terrace under a starry sky" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt"><h3>An astronomy rooftop</h3><p>Telescopes, blankets and a clear Chilterns sky. Late nights spent naming the planets together.</p></div>
+      </article>
+      <article class="card wide bikes">
+        <div class="img"><img src="bikes.jpg" alt="A parent riding an electric cargo bike with two children on the back seat" loading="lazy"><span class="cv">The vision</span></div>
+        <div class="txt">
+          <h3>Electric bikes for nature tours</h3>
+          <p>Electric bikes to rent for guided rides through the woods and lanes around Chesham, including family bikes with seats for little ones, and routes for small legs and tired parents alike.</p>
+        </div>
+      </article>
+      <article class="card note full side">
+        <div class="img photo"><img src="studio.jpg" alt="Concept render of children building a glowing miniature town of paper houses on a projected map table" loading="lazy"><span class="cv">Concept render</span></div>
+        <div class="txt">
+          <span class="eyebrow">Made by our community</span>
+          <h3>A sculpture and film set studio, <em>where children go all in.</em></h3>
+          <p>Clay, scrap timber, paint, costumes, cameras and lights. A room where children build worlds, make a mess and tell their own stories.</p>
+          <p>We are lucky to have such a creative community. Among our founding families are artists, and friends who work on film sets, who want to help bring this room to life.</p>
+        </div>
+      </article>
+      <article class="card note full side">
+        <div class="illus" aria-hidden="true">
+          <svg viewBox="0 0 320 180" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M196 150V70a44 44 0 0 1 88 0v80" stroke="#CE9C43" stroke-width="2.5"/>
+            <path d="M214 150V78a26 26 0 0 1 52 0v72" stroke="#CE9C43" stroke-width="1.5" opacity=".6"/>
+            <circle cx="240" cy="52" r="4" fill="#CE9C43"/>
+            <path d="M20 150h290" stroke="#FCF8EF" stroke-width="1.5" opacity=".35"/>
+            <path d="M36 134v-14c0-6 4-10 10-11l18-3 18-20c4-4 8-6 14-6h46c6 0 11 3 14 8l12 18 14 3c6 1 10 6 10 12v13" stroke="#FCF8EF" stroke-width="2.5"/>
+            <path d="M92 106l14-16h38l10 16z" stroke="#FCF8EF" stroke-width="1.5" opacity=".7"/>
+            <circle cx="72" cy="136" r="13" stroke="#C9714F" stroke-width="2.5"/>
+            <circle cx="160" cy="136" r="13" stroke="#C9714F" stroke-width="2.5"/>
+            <path d="M28 40c22-10 40-10 58 0" stroke="#FCF8EF" stroke-width="1.5" opacity=".4" stroke-dasharray="2 6"/>
+            <path d="M86 40l-6-5m6 5l-6 5" stroke="#FCF8EF" stroke-width="1.5" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <span class="eyebrow">Getting here, getting home</span>
+          <h3>Easy arrivals, <em>easy goodbyes.</em></h3>
+          <p>We are exploring valet parking and a pickup service for the days you need it, plus a comfortable drive home after a long evening, so arriving and leaving never becomes the hard part.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="phil" id="philosophy">
+  <div class="wrap stack">
+    <span class="eyebrow">Our philosophy</span>
+    <h2>A house where children and parents <em>both learn by trying.</em></h2>
+    <p class="intro">We don’t believe in one right way to raise a child. We believe children grow brave when they can see the people they love being brave too: trying new things, getting them wrong, and trying again. So this house is designed for children and for parents, as learners side by side.</p>
+    <div class="threads">
+      <div><h3>Curiosity</h3><p>Asks the question. Real books, real tools and real materials, within reach and allowed to be touched.</p></div>
+      <div><h3>Creativity</h3><p>Makes something in answer. Half-finished work is shown proudly on the walls, by children and parents alike.</p></div>
+      <div><h3>Courage</h3><p>Shows the attempt to someone else. Every busy room has a quiet corner, because courage needs somewhere safe to return to.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lib" id="library">
+  <div class="wrap">
+    <div class="top">
+      <div class="stack">
+        <span class="eyebrow">The heart of the house · Work in progress</span>
+        <h2>How do we create a connective tissue <em>for the whole house?</em></h2>
+        <p>This is the question we keep coming back to with our architect. Our current thinking: the main atrium becomes a tall library, a place for curiosity, creativity and co-working all at once.</p>
+        <p>The hard part, and the fun part, is letting very different needs live side by side. These are the ideas we are exploring:</p>
+        <ul class="principles">
+          <li><b>Quiet pockets.</b> Small booths where a parent can take a call without leaving the room.</li>
+          <li><b>Silent reading rooms.</b> Calm corners where children can curl up with a book.</li>
+          <li><b>Room for noise.</b> Livelier, playful spaces where sound is welcome.</li>
+          <li><b>Sightlines, not walls.</b> So a child can always find a parent’s face.</li>
+        </ul>
+        <p>None of this is fixed. We are still finding the connections, and we would love your thoughts.</p>
+      </div>
+      <div class="film">
+        <video src="library-light.mp4" poster="library-light.jpg" autoplay loop controls muted playsinline preload="metadata" aria-label="Concept film moving through a light, pale-wood library with children's tables"></video>
+        <span class="cv">Concept film</span>
+      </div>
+    </div>
+
+    <div class="choose">
+      <span class="eyebrow">Help us decide</span>
+      <h3>Which library feels like <em>yours?</em></h3>
+      <p>We are exploring two directions with our architect. Reply and tell us which one you would rather spend a rainy Saturday in.</p>
+      <div class="pair">
+        <figure>
+          <div class="img"><img src="library.jpg" alt="Concept render of a classic, dark-wood library with tall shelves and a spiral stair" loading="lazy"><span class="cv">Concept render</span></div>
+          <figcaption><b>A. Classic and cosy</b>Dark timber, tall shelves, a spiral stair. Feels like the house’s 1712 roots.</figcaption>
+        </figure>
+        <figure>
+          <div class="img"><img src="library-light.jpg" alt="Concept render of a light, pale-wood library with a children's area and soft daylight" loading="lazy"><span class="cv">Concept render</span></div>
+          <figcaption><b>B. Light and open</b>Pale wood, soft daylight, low shelving that children can roam freely.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lib cowork" id="coworking">
+  <div class="wrap">
+    <div class="top">
+      <div class="film">
+        <video src="library.mp4" poster="library.jpg" controls muted playsinline preload="metadata" aria-label="Concept film of parents working at library desks, ending in a children's play corner nearby"></video>
+        <span class="cv">Concept film</span>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Co-working</span>
+        <h2>Work properly. <em>Stay close.</em></h2>
+        <p>Some days you need a real desk, good light and a quiet hour. Other days you simply want to be near your children.</p>
+        <p>We want the co-working space to give you both. It opens off the library, so you can get on with your work while your child reads, builds or plays a few steps away, and look up whenever you like.</p>
+        <p>We are still working out the details, from how quiet each corner should be to how close is close enough. Tell us what a good working day here would look like for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="updates" id="updates">
+  <div class="wrap narrow">
+    <span class="eyebrow">Updates</span>
+    <h2>How it’s <em>coming together.</em></h2>
+    <ol class="log" reversed>
+      <li><time datetime="2026-11">Nov 2026</time><div><h3>Building the app while the estate takes shape</h3><p>While the estate finds its final form, we are building the digital side of The Bury: a free app for parents to book spaces and classes, and a place to find books, toys and pre-loved clothes for your children. You will be the first to try it.</p></div></li>
+      <li><time datetime="2026-11">Nov 2026</time><div><h3>Design philosophy shared</h3><p>We have shared the philosophy, and your ideas, with our architect. The library, family kitchen and co-working space are the first spaces being shaped.</p></div></li>
+      <li><time datetime="2026-10">Oct 2026</time><div><h3>Your answers came in</h3><p>Founding families told us which spaces and services they would use most. Those answers now sit at the centre of the brief.</p></div></li>
+      <li><time datetime="2026-10">Oct 2026</time><div><h3>A fresh start</h3><p>After the fire at the main house, work restarted with a new survey and, in many ways, a blank page to design on together.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="own" id="ownership">
+  <div class="wrap">
+    <div class="box">
+      <div class="stack">
+        <span class="eyebrow">Owned by families</span>
+        <h2>A place like this should <em>belong to the families who use it.</em></h2>
+        <p>So before we look anywhere else, we would like to invite founding families to be the first to own a part of the estate with us.</p>
+        <p>There is nothing to decide today. We would simply love to know: would this interest you?</p>
+      </div>
+      <div class="cta">
+        <p><b>Reply to our email, or write to us at</b></p>
+        <div class="mailrow">
+          <span class="mail" id="mail">hellothebury@gmail.com</span>
+          <button class="btn" id="copy" type="button">Copy address</button>
+        </div>
+        <p class="fine" id="copied" aria-live="polite"></p>
+        <p class="fine">This page is not an offer of shares or an invitation to invest. If there is interest, we will share details privately and only once our legal advice is in place. Any investment carries risk, including losing the money you put in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="stack" style="gap:8px">
+      <span class="logo">The Bury</span>
+      <span>Church Street, Chesham Old Town, Buckinghamshire HP5</span>
+    </div>
+    <p>All films and images on this page are concept renders, created to share our vision. They are not photographs of The Bury, and the final design will differ.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('copy'),m=document.getElementById('copied'),t=document.getElementById('mail');
+  b.addEventListener('click',function(){
+    var addr=t.textContent.trim();
+    function fallback(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Address selected. Press copy on your keyboard.';}
+    try{navigator.clipboard.writeText(addr).then(function(){m.textContent='Copied.';},fallback);}catch(e){fallback();}
+  });
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){var v=document.querySelector('.arch video');if(v){v.removeAttribute('autoplay');v.pause();v.controls=true;}}
+})();
+</script>
+
+</body>
+</html>
